@@ -1,0 +1,131 @@
+:host {
+  --bark: #4a3728;
+  --saddle: #c49a6c;
+  --sage: #8b9a7a;
+  --sand: #e8dccb;
+  --bone: #f8f7f3;
+}
+
+/* One long section with an interesting gradient */
+.team {
+  background: radial-gradient(
+      80% 50% at 20% 0%,
+      color-mix(in oklab, var(--sand), white 70%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      70% 50% at 100% 40%,
+      color-mix(in oklab, var(--sage), white 82%) 0%,
+      transparent 65%
+    ),
+    linear-gradient(180deg, var(--bone), #fff);
+  padding-block: 3rem 4rem;
+
+  .team__inner {
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    display: grid;
+    gap: 3rem;
+  }
+}
+
+/* Shared member layout */
+.member {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: start;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .member__content {
+    color: var(--bark);
+
+    .member__name {
+      font-family: var(--tw-font-serif, ui-serif, Georgia, serif);
+      font-weight: 800;
+      font-size: clamp(1.3rem, 1.8vw + 1rem, 2rem);
+      margin: 0 0 0.5rem 0;
+      letter-spacing: 0.2px;
+    }
+
+    .member__bio {
+      line-height: 1.75;
+      font-size: 1.05rem;
+      color: color-mix(in oklab, var(--bark), white 10%);
+      margin: 0 0 0.85rem 0;
+    }
+  }
+
+  .member__photo {
+    justify-self: center;
+    align-self: center;
+    img {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+      object-fit: cover;
+      display: block;
+      margin-inline: auto;
+    }
+  }
+}
+
+.member__body--right-accent {
+  border-right: 4px solid color-mix(in oklab, var(--saddle), white 35%);
+  padding-right: 2rem;
+  margin-top: 1rem;
+
+  @media (max-width: 899px) {
+    border-right: none;
+    border-left: 4px solid color-mix(in oklab, var(--saddle), white 35%);
+    padding-left: 2rem;
+    padding-right: 1.5rem;
+  }
+}
+.member__body--left-accent {
+  border-left: 4px solid color-mix(in oklab, var(--saddle), white 35%);
+  padding-left: 2rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+  @media (max-width: 899px) {
+    padding-right: 1.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Desktop positioning:
+   - Jackie: image left, text right
+   - Martin: text left, image right
+   Mobile stacks in DOM order (text then image for each) */
+.member--jackie {
+  @media (min-width: 900px) {
+    .member__content {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .member__photo {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+}
+.member--martin {
+  @media (min-width: 900px) {
+    .member__content {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .member__photo {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+}

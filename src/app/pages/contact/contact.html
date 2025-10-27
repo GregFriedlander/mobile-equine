@@ -1,0 +1,72 @@
+<med-services-hero
+  [src]="SITE.contactPage.hero.src"
+  [srcset]="SITE.contactPage.hero.srcset"
+  [alt]="SITE.contactPage.hero.alt"
+  [title]="SITE.contactPage.hero.title"
+  [subtitle]="SITE.contactPage.hero.subtitle"
+/>
+
+<section class="contact">
+  <div class="contact__inner">
+    <!-- Info card -->
+    <div class="card card--info">
+      <div class="card__header">
+        <h2 class="card__title">Get in Touch</h2>
+        <img class="card__mark" src="/assets/horseshoe.png" alt="" aria-hidden="true" />
+      </div>
+
+      <address class="info">
+        <p class="info__row">
+          <span class="label">Address</span>
+          <a [href]="contact().mapsUrl" target="_blank" rel="noopener noreferrer">
+            {{ contact().addressLine1 }}<br />
+            {{ contact().city }}, {{ contact().region }} {{ contact().postalCode }}
+          </a>
+        </p>
+
+        <p class="info__row">
+          <span class="label">Phone</span>
+          <a [href]="buildTelHref()">{{ contact().phone }}</a>
+        </p>
+
+        <p class="info__row">
+          <span class="label">Email</span>
+          <a [href]="buildMailtoHref()">{{ contact().email }}</a>
+        </p>
+      </address>
+
+      <div class="cta-row">
+        <a class="btn btn--primary" [href]="buildTelHref()">Call Now</a>
+        <a class="btn btn--outline" [href]="buildMailtoHref()">Email Us</a>
+        <a
+          class="btn btn--ghost"
+          [href]="contact().mapsUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open in Maps
+        </a>
+      </div>
+    </div>
+
+    <!-- Message helper (no backend; just composes an email) -->
+    <!-- <div class="card card--message">
+      <h2 class="card__title">Send a Quick Message</h2>
+      <p class="help">
+        Prefer email? Click a preset below to open your mail app with the subject filled in.
+      </p>
+
+      <div class="chips">
+        <a class="chip" [href]="buildMailtoHref('Appointment Request')">Appointment Request</a>
+        <a class="chip" [href]="buildMailtoHref('Service Question')">Service Question</a>
+        <a class="chip" [href]="buildMailtoHref('Emergency Availability')"
+          >Emergency Availability</a
+        >
+      </div>
+
+      <p class="note">
+        For emergencies, please call. Emergency services are provided when available.
+      </p>
+    </div> -->
+  </div>
+</section>

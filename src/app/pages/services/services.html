@@ -1,0 +1,50 @@
+<med-services-hero
+  [src]="SITE.servicesPage.hero.src"
+  [srcset]="SITE.servicesPage.hero.srcset"
+  [alt]="SITE.servicesPage.hero.alt"
+  [title]="SITE.servicesPage.hero.title"
+  [subtitle]="SITE.servicesPage.hero.subtitle"
+/>
+
+<div class="services-page">
+  <!-- SECTION 1: Services -->
+  <section class="svc svc--list">
+    <div class="svc__inner">
+      <div class="svc__content">
+        <h2 class="svc__title">Our Services</h2>
+
+        <ul class="svc-list">
+          @for (item of services(); track item) {
+          <li>{{ item }}</li>
+          }
+        </ul>
+
+        <p class="svc__emergency">
+          {{ SITE.servicesPage.emergencyNote }}
+        </p>
+      </div>
+
+      <figure class="svc__image">
+        <img
+          [src]="SITE.servicesPage.image"
+          [alt]="SITE.homeImages.top.alt"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Affiliates -->
+  <section class="svc svc--affiliates">
+    <div class="svc__inner svc__inner--narrow">
+      <h2 class="svc__title">Affiliate Hospitals</h2>
+
+      <ul class="aff-list">
+        @for (name of affiliates(); track name) {
+        <li>{{ name }}</li>
+        }
+      </ul>
+    </div>
+  </section>
+</div>

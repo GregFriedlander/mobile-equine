@@ -1,0 +1,369 @@
+/* ---------- Palette (scoped to this component) ---------- */
+:host {
+  --bark: #4a3728;
+  --saddle: #c49a6c;
+  --sage: #8b9a7a;
+  --sand: #e8dccb;
+  --bone: #f8f7f3;
+  --ink: #111;
+}
+
+/* Wrapper: no top/bottom padding so sections touch hero/footer */
+.home {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Section base ---------- */
+.section {
+  &__inner {
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  &__title {
+    font-family: var(--tw-font-serif, ui-serif, Georgia, serif);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    margin: 0 0 0.6rem 0;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    color: var(--bark);
+  }
+
+  &__lead {
+    line-height: 1.75;
+    font-size: 1.1rem;
+    color: color-mix(in oklab, var(--bark), white 10%);
+    padding-left: 1rem;
+    border-left: 4px solid color-mix(in oklab, var(--saddle), white 35%);
+    max-width: 65ch; /* wider opening lines as requested */
+  }
+}
+
+/* ---------- MISSION + AREAS (combined w/ bridging image) ---------- */
+.section--mission-areas {
+  background: linear-gradient(180deg, var(--sand), var(--bone));
+  padding-block: 3rem 3.5rem;
+
+  .section__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+
+    @media (min-width: 900px) {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      column-gap: 3rem;
+      row-gap: 1rem;
+    }
+  }
+
+  .mission {
+    grid-column: 1;
+    margin-bottom: 2rem;
+    @media (max-width: 900px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .mission-areas__image {
+    grid-column: 1;
+    justify-self: center;
+    z-index: 2;
+
+    img {
+      //   width: min(480px, 42vw); /* smaller, proportional */
+      height: auto;
+      display: block;
+      border-radius: 1rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+      object-fit: cover;
+    }
+
+    @media (min-width: 900px) {
+      grid-column: 2; /* move to right column on desktop */
+      grid-row: 1 / span 2; /* bridge both rows (mission + areas) */
+      align-self: center;
+      //   margin-top: 2rem; /* soft overlap */
+      //   margin-bottom: -2rem;
+    }
+
+    @media (min-width: 1200px) {
+      img {
+        width: min(420px, 36vw);
+      } /* scale down further on wide screens */
+    }
+  }
+
+  .areas {
+    grid-column: 1;
+    grid-row: 3;
+    padding-top: 0.5rem;
+
+    @media (min-width: 900px) {
+      grid-row: 2; /* sits below mission on desktop */
+      max-width: 52ch;
+    }
+  }
+}
+
+/* ---------- OFFERINGS (image left, copy right, asymmetric overlap) ---------- */
+/* ---------- OFFERINGS (refined, premium three-up) ---------- */
+.section--offerings {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--sage), white 78%), white);
+  padding-block: 3rem 4rem;
+
+  .section__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 900px) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+
+  .offerings__image {
+    grid-column: 1;
+    z-index: 2;
+
+    img {
+      //   width: min(480px, 42vw);
+      height: auto;
+      display: block;
+      border-radius: 1rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+      object-fit: cover;
+    }
+
+    @media (min-width: 900px) {
+      //   margin-top: -4rem;
+      //   margin-bottom: -1rem;
+      padding-left: 2rem;
+    }
+
+    @media (min-width: 1200px) {
+      img {
+        width: min(420px, 36vw);
+      }
+    }
+  }
+
+  .offerings__content {
+    grid-column: 1;
+    @media (min-width: 900px) {
+      grid-column: 2;
+    }
+    // max-width: 56ch;
+    color: var(--bark);
+    text-align: left;
+
+    .section__title {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .offerings__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    padding-top: 0.5rem;
+
+    @media (min-width: 700px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .feature {
+    position: relative;
+    border-radius: 1rem;
+    background: radial-gradient(
+      120% 120% at 0% 0%,
+      color-mix(in oklab, var(--sand), white 80%) 0%,
+      #fff 60%
+    );
+    border: 1px solid color-mix(in oklab, var(--saddle), transparent 70%);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    padding: 1rem 0.9rem 1.1rem 0.9rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+    &:hover {
+      // transform: translateY(-2px);
+      // box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .feature__num {
+      font-family: var(--tw-font-serif, ui-serif, Georgia, serif);
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: 0.5px;
+      color: color-mix(in oklab, var(--bark), black 10%);
+      line-height: 1;
+    }
+
+    .feature__mark {
+      width: 28px;
+      height: 28px;
+      opacity: 0.55;
+      filter: brightness(0) saturate(0);
+      transform: rotate(-15deg);
+      margin-bottom: 1rem;
+    }
+
+    .feature__title {
+      font-weight: 800;
+      font-size: clamp(1rem, 1vw + 0.9rem, 1.2rem);
+      line-height: 1.25;
+      color: var(--bark);
+      /* subtle stitched underline */
+      position: relative;
+      //   padding-bottom: 0.5rem;
+      margin: 0;
+    }
+    // .feature__title::after {
+    //   content: '';
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 0.1rem;
+    //   width: 40%;
+    //   height: 2px;
+    //   background-image: linear-gradient(90deg, var(--saddle) 50%, transparent 0);
+    //   background-size: 10px 2px;
+    //   background-repeat: repeat-x;
+    //   opacity: 0.7;
+    // }
+  }
+
+  /* Give the CTAs more breathing room from features */
+  .cta-row--spaced {
+    margin-top: 2.25rem;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+      row-gap: 2rem;
+      border-top: 1px solid color-mix(in oklab, var(--saddle), transparent 45%);
+      padding-top: 2em;
+    }
+  }
+}
+
+/* ---------- Elegant lists (no bubbles) ---------- */
+.elegant-list {
+  list-style: none;
+  margin: 0.75rem 0 0 0;
+  padding: 0;
+  //   border-left: 4px solid color-mix(in oklab, var(--saddle), white 35%);
+
+  li {
+    position: relative;
+    padding: 0.55rem 0 0.55rem 1.25rem;
+    color: color-mix(in oklab, var(--bark), white 10%);
+    border-bottom: 1px dashed color-mix(in oklab, var(--saddle), transparent 45%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.05rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--saddle);
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.elegant-list--areas li {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Offerings list: subtle stitch accent */
+.elegant-list--offerings li::before {
+  background: linear-gradient(90deg, var(--saddle) 50%, transparent 0) left/10px 2px repeat-x;
+  width: 12px;
+  height: 2px;
+  border-radius: 0;
+  top: 1.05rem;
+}
+
+/* ---------- Buttons (sleek, on-brand) ---------- */
+.btn {
+  --ring: color-mix(in oklab, var(--saddle), transparent 55%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+  font-size: 1.25rem;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--primary {
+    background: var(--bark);
+    color: #fff;
+    border-color: color-mix(in oklab, var(--bark), black 10%);
+    &:hover {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &--outline {
+    background: white;
+    color: var(--bark);
+    border-color: var(--ring);
+    &:hover {
+      background: color-mix(in oklab, var(--sand), white 65%);
+    }
+  }
+}
+
+/* Optional horseshoe accent on buttons */
+.horseshoe-btn {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.65;
+    filter: brightness(0) saturate(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  &:hover img {
+    opacity: 0.9;
+    transform: rotate(-15deg);
+  }
+}

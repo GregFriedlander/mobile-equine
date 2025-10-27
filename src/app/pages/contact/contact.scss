@@ -1,0 +1,222 @@
+:host {
+  --bark: #4a3728;
+  --saddle: #c49a6c;
+  --sage: #8b9a7a;
+  --sand: #e8dccb;
+  --bone: #f8f7f3;
+  --ink: #111;
+}
+
+.contact {
+  position: relative;
+  margin: 0; /* guard against any global section margins */
+  display: flow-root; /* create a new BFC to avoid margin-collapsing gaps */
+  background-color: var(--bone); /* solid base under gradients */
+  background: radial-gradient(
+      80% 50% at 15% 0%,
+      color-mix(in oklab, var(--sand), white 75%) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--bone), #fff);
+  padding-block: 2.25rem 3rem;
+
+  .contact__inner {
+    max-width: 65rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0 4rem;
+
+    @media (min-width: 900px) {
+      //   grid-template-columns: 1.1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 890px) {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    /* Extend background by 1px to cover any sub-pixel seams on some devices */
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: inherit;
+    }
+  }
+}
+
+/* Cards */
+.card {
+  border-radius: 1rem;
+  background: #fff;
+  border: 1px solid color-mix(in oklab, var(--saddle), transparent 72%);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+
+  @media (min-width: 900px) {
+    padding: 1.25rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: var(--tw-font-serif, ui-serif, Georgia, serif);
+    font-weight: 800;
+    font-size: clamp(1.2rem, 1.2vw + 1rem, 1.6rem);
+    color: var(--bark);
+    margin: 0 0 0.25rem 0;
+  }
+
+  &__mark {
+    width: 22px;
+    height: 22px;
+    opacity: 0.18;
+    filter: brightness(0) saturate(0);
+    transform: rotate(-12deg);
+  }
+}
+
+/* Info layout */
+.info {
+  margin-top: 0.25rem;
+  font-style: normal;
+  color: color-mix(in oklab, var(--bark), white 10%);
+  padding: 0 1rem;
+  margin: 0.5rem 0 1.5rem;
+
+  .info__row {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed color-mix(in oklab, var(--saddle), transparent 65%);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .label {
+    font-weight: 700;
+    color: var(--saddle);
+  }
+
+  a {
+    color: var(--bark);
+    text-underline-offset: 2px;
+    &:hover {
+      color: color-mix(in oklab, var(--bark), black 12%);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .info__row {
+      grid-template-columns: 1fr;
+    }
+    .label {
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+/* CTA buttons */
+.cta-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  border-radius: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+
+  @media (max-width: 900px) {
+    margin-bottom: 0.5rem;
+    width: 19rem;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &--primary {
+    background: var(--bark);
+    color: #fff;
+    border-color: color-mix(in oklab, var(--bark), black 10%);
+  }
+  &--outline {
+    background: white;
+    color: var(--bark);
+    border-color: color-mix(in oklab, var(--saddle), transparent 55%);
+    &:hover {
+      background: color-mix(in oklab, var(--sand), white 70%);
+    }
+  }
+  &--ghost {
+    background: color-mix(in oklab, var(--sand), white 84%);
+    color: var(--bark);
+    border-color: color-mix(in oklab, var(--saddle), transparent 80%);
+  }
+}
+
+/* Message helper card */
+.card--message .help {
+  margin: 0.25rem 0 0.75rem 0;
+  color: color-mix(in oklab, var(--bark), white 10%);
+}
+.card--message .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  background: color-mix(in oklab, var(--sand), white 70%);
+  color: var(--bark);
+  border: 1px solid color-mix(in oklab, var(--saddle), transparent 65%);
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+}
+.card--message .note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: color-mix(in oklab, var(--bark), black 5%);
+}

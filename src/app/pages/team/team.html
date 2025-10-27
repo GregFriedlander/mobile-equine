@@ -1,0 +1,44 @@
+<med-services-hero
+  [src]="SITE.teamPage.hero.src"
+  [srcset]="SITE.teamPage.hero.srcset"
+  [alt]="SITE.teamPage.hero.alt"
+  [title]="SITE.teamPage.hero.title"
+  [subtitle]="SITE.teamPage.hero.subtitle"
+/>
+
+<section class="team">
+  <div class="team__inner">
+    <!-- ROW 1: Jackie (desktop: image left, text right; mobile stack: text then image) -->
+    <article class="member member--jackie">
+      <!-- content first in DOM so mobile shows text, then image -->
+      <div class="member__content">
+        <h2 class="member__name">{{ jackie().name }}</h2>
+        <div class="member__body member__body--right-accent">
+          @for (p of jackie().paragraphs; track p) {
+          <p class="member__bio">{{ p }}</p>
+          }
+        </div>
+      </div>
+
+      <figure class="member__photo">
+        <img [src]="jackie().photo" [alt]="jackie().name" loading="lazy" decoding="async" />
+      </figure>
+    </article>
+
+    <!-- ROW 2: Martin (desktop: text left w/ left accent, image right; mobile stack: text then image) -->
+    <article class="member member--martin">
+      <div class="member__content">
+        <h2 class="member__name">{{ martin().name }}</h2>
+        <div class="member__body member__body--left-accent">
+          @for (p of martin().paragraphs; track p) {
+          <p class="member__bio">{{ p }}</p>
+          }
+        </div>
+      </div>
+
+      <figure class="member__photo">
+        <img [src]="martin().photo" [alt]="martin().name" loading="lazy" decoding="async" />
+      </figure>
+    </article>
+  </div>
+</section>

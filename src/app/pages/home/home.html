@@ -1,0 +1,80 @@
+<med-hero
+  [src]="SITE.hero.src"
+  [srcset]="SITE.hero.srcset"
+  [alt]="SITE.hero.alt"
+  [title]="SITE.brand.name"
+  [subtitle]="SITE.brand.tagline"
+>
+</med-hero>
+
+<div class="home">
+  <!-- MISSION + AREAS (combined section) -->
+  <section class="section section--mission-areas">
+    <div class="section__inner">
+      <!-- Mission copy (left) -->
+      <div class="mission">
+        <h2 class="section__title">Our Mission</h2>
+        <p class="section__lead">{{ SITE.mission }}</p>
+      </div>
+
+      <!-- Bridging image (right, spans both mission + areas) -->
+      <figure class="mission-areas__image">
+        <img
+          [src]="SITE.homeImages.top.src"
+          [alt]="SITE.homeImages.top.alt"
+          decoding="async"
+          loading="lazy"
+        />
+      </figure>
+
+      <!-- Proudly Serving (left, below mission) -->
+      <div class="areas">
+        <h2 class="section__title">Proudly Serving</h2>
+        <ul class="elegant-list elegant-list--areas">
+          <li *ngFor="let area of SITE.areasServed">{{ area }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERINGS (image left, copy right) -->
+  <section class="section section--offerings">
+    <div class="section__inner">
+      <!-- Overlapping image (left) -->
+      <figure class="offerings__image">
+        <img
+          [src]="SITE.homeImages.bottom.src"
+          [alt]="SITE.homeImages.bottom.alt"
+          decoding="async"
+          loading="lazy"
+        />
+      </figure>
+
+      <!-- Offerings content (right) -->
+      <div class="offerings__content">
+        <h2 class="section__title">We Offer</h2>
+
+        <div class="offerings__grid">
+          <article class="feature" *ngFor="let item of SITE.offerings; let i = index">
+            <!-- <div class="feature__meta"> -->
+            <!-- <span class="feature__num">{{ i + 1 | number : '2.0-0' }}</span> -->
+            <img class="feature__mark" src="/assets/horseshoe.png" alt="" aria-hidden="true" />
+            <!-- </div> -->
+            <h3 class="feature__title">{{ item.title }}</h3>
+          </article>
+        </div>
+
+        <div class="cta-row cta-row--spaced">
+          <a routerLink="/services" class="btn btn--outline horseshoe-btn">
+            <!-- <img src="/assets/horseshoe.png" alt="" aria-hidden="true" /> -->
+            View Services
+          </a>
+          <a routerLink="/contact" class="btn btn--primary horseshoe-btn">
+            <!-- <img src="/assets/horseshoe.png" alt="" aria-hidden="true" /> -->
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
