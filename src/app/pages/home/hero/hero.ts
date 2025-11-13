@@ -63,7 +63,7 @@ import { Component, input } from '@angular/core';
   `,
 })
 export class HeroComponent {
-  src = input('/assets/hero-panorama.jpg');
+  src = input('assets/hero-panorama.jpg');
   srcset = input<string | undefined>();
   sizes = input<string | undefined>();
   alt = input('Ranch panorama in Agua Dulce, CA');
@@ -75,5 +75,5 @@ export class HeroComponent {
   );
 
   // PNG with the horse mark (or full lockup if you prefer)
-  logo = input('/assets/logo-only.png');
+  logo = input('assets/logo-only.png');
 }

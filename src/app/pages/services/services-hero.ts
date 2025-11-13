@@ -79,7 +79,7 @@ import { Component, input } from '@angular/core';
   ],
 })
 export class ServicesHeroComponent {
-  src = input('/assets/services-hero.jpg');
+  src = input('assets/services-hero.jpg');
   srcset = input<string | undefined>();
   sizes = input<string | undefined>();
   alt = input('Services hero image');

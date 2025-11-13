@@ -3,26 +3,26 @@ export const SITE = {
     name: 'Mobile Equine Diagnostics',
     // tagline: 'Compassionate, on-site care for performance and companion horses',
     tagline: 'Compassionate, on-site equine care',
-    logoUrl: '/assets/logo.svg', // replace later
+    logoUrl: 'assets/logo.svg', // replace later
   },
   hero: {
-    src: '/assets/ranch-home.png',
+    src: 'assets/ranch-home.png',
     srcset: [
-      '/assets/ranch-home.png',
-      '/assets/ranch-home.png',
-      '/assets/ranch-home.png 3000w',
+      'assets/ranch-home.png',
+      'assets/ranch-home.png',
+      'assets/ranch-home.png 3000w',
     ].join(', '),
     alt: 'Ranch panorama in Agua Dulce, CA',
   },
   homeImages: {
     top: {
       // overlaps Mission + Areas (right side)
-      src: '/assets/home-top.png',
+      src: 'assets/home-top.png',
       alt: 'Field-side equine care',
     },
     bottom: {
       // overlaps Areas + Offerings (left side)
-      src: '/assets/home-bottom.png',
+      src: 'assets/home-bottom.png',
       alt: 'Diagnostic equipment and care',
     },
   },
@@ -53,22 +53,22 @@ export const SITE = {
   areasServed: [
     'Acton',
     'Agua Dulce',
-    'Antelope Valley',
+    // 'Antelope Valley',
     'Santa Clarita Valley',
-    'Palmdale/Lancaster',
+    // 'Palmdale/Lancaster',
   ],
   affiliations: ['[Hospital Name 1]', '[Hospital Name 2]', '[Hospital Name 3]'],
   team: [
     {
       name: 'Dr. First Last',
       role: 'DVM',
-      photo: '/assets/team1.jpg',
+      photo: 'assets/team1.jpg',
       bio: 'Short bio, specialties, years experience.',
     },
     {
       name: 'Tech First Last',
       role: 'RVT',
-      photo: '/assets/team2.jpg',
+      photo: 'assets/team2.jpg',
       bio: 'Short bio, support focus, certifications.',
     },
   ],
@@ -80,14 +80,14 @@ export const SITE = {
   },
   servicesPage: {
     hero: {
-      src: '/assets/services-hero.png', // dark photo, full-bleed
-      srcset: ['/assets/services-hero.png'].join(', '),
+      src: 'assets/services-hero.png', // dark photo, full-bleed
+      srcset: ['assets/services-hero.png'].join(', '),
       alt: 'Equine diagnostics in the field at dusk',
       title: 'Services',
       subtitle: 'Evidence-based diagnostics, calmly delivered',
     },
 
-    image: '/assets/jack-drill.png',
+    image: 'assets/jack-drill.png',
 
     // Use plain editable text; component will sort A→Z
     services: [
@@ -115,15 +115,15 @@ export const SITE = {
   },
   teamPage: {
     hero: {
-      src: '/assets/services-hero.png', // dark photo, full-bleed
-      srcset: ['/assets/services-hero.png'].join(', '),
+      src: 'assets/services-hero.png', // dark photo, full-bleed
+      srcset: ['assets/services-hero.png'].join(', '),
       alt: 'Hands-on equine care with the MED team',
       title: 'Our Team',
       subtitle: 'Experienced, calm, and horse-first',
     },
     jackie: {
       name: 'Jacqueline Friedlander, DVM',
-      photo: '/assets/team-jackie.png',
+      photo: 'assets/team-jackie.png',
       paragraphs: [
         `Jacqueline is a graduate of the Western University of Health Sciences – College of Veterinary Medicine. She was born and raised in the Brentwood area of West Los Angeles and began riding horses at the age of 4. She spent many years on the hunter-jumper ‘A’ circuit with Rob Gage Stables at Middle Ranch before leaving the horse show world to dedicate more time to her growing horse training and riding lesson business.`,
         `Jackie met her husband, Martin while training horses in the Topanga canyon area. Martin introduced her to a wide equine world of polo, cutting, and reined cow horse events as well as natural horsemanship training. She and her husband own 3 horses (two Quarter horses and one Warmblood) and are very active in the horse community.`,
@@ -133,7 +133,7 @@ export const SITE = {
     },
     martin: {
       name: 'Martin Friedlander',
-      photo: '/assets/team-martin.png',
+      photo: 'assets/team-martin.png',
       paragraphs: [
         `Martin is a native of South Africa and emigrated to the United States as a teenager with his family. While in South Africa he grew up riding horses on his uncle’s ranch in Natal. He is an athlete and enjoys soccer and cricket. He developed a personal training and fitness business in the Santa Monica area.`,
         `Martin rode horses in the Topanga canyon area, which is where he met his wife, Dr. Jackie Friedlander. His equine interests soon expanded to include cutting and reined cow horse events. Martin spent many years working with the founders of the ‘natural horsemanship’ techniques that are used by many clinicians today.`,
@@ -156,8 +156,8 @@ export const SITE = {
 
   contactPage: {
     hero: {
-      src: '/assets/services-hero.png', // dark photo, full-bleed
-      srcset: ['/assets/services-hero.png'].join(', '),
+      src: 'assets/services-hero.png', // dark photo, full-bleed
+      srcset: ['assets/services-hero.png'].join(', '),
       alt: 'Agua Dulce landscape at dusk',
       title: 'Contact',
       subtitle: 'Reach out to schedule an appointment or ask a question',

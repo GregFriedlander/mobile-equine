@@ -24,27 +24,14 @@
         </p>
       </div>
 
-      <figure class="svc__image">
-        <img
-          [src]="SITE.servicesPage.image"
-          [alt]="SITE.homeImages.top.alt"
-          loading="lazy"
-          decoding="async"
-        />
-      </figure>
-    </div>
-  </section>
-
-  <!-- SECTION 2: Affiliates -->
-  <section class="svc svc--affiliates">
-    <div class="svc__inner svc__inner--narrow">
-      <h2 class="svc__title">Affiliate Hospitals</h2>
-
-      <ul class="aff-list">
-        @for (name of affiliates(); track name) {
-        <li>{{ name }}</li>
-        }
-      </ul>
+      <div class="svc__affiliates">
+        <h2 class="svc__title">Affiliate Hospitals</h2>
+        <ul class="aff-list">
+          @for (name of affiliates(); track name) {
+          <li>{{ name }}</li>
+          }
+        </ul>
+      </div>
     </div>
   </section>
 </div>
